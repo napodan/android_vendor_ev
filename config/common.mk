@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= evervolv
+PRODUCT_BRAND ?= napodan
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -23,16 +23,8 @@ PRODUCT_COPY_FILES += \
 
 # Required packages
 PRODUCT_PACKAGES += \
-    LatinIME \
-    Superuser \
     su
 
-# Optional packages
-PRODUCT_PACKAGES += \
-    AndroidTerm \
-    EVToolbox \
-    EVTips \
-    EVWidgets
 
 # Openssh
 PRODUCT_PACKAGES += \
@@ -61,12 +53,6 @@ PRODUCT_COPY_FILES += \
     vendor/ev/prebuilt/common/etc/init.d/06handleswap:system/etc/init.d/06handleswap \
     vendor/ev/prebuilt/common/etc/init.d/20extgapps:system/etc/init.d/20extgapps
 
-# Apps2sd files
-PRODUCT_COPY_FILES += \
-    vendor/ev/prebuilt/common/bin/a2sd:system/bin/a2sd \
-    vendor/ev/prebuilt/common/bin/fix_permissions:system/bin/fix_permissions \
-    vendor/ev/prebuilt/common/xbin/zipalign:system/xbin/zipalign \
-    vendor/ev/prebuilt/common/etc/init.d/10apps2sd-redux:system/etc/init.d/10apps2sd
 
 # Prebuilt commandline tools
 PRODUCT_COPY_FILES += \
@@ -74,7 +60,6 @@ PRODUCT_COPY_FILES += \
     vendor/ev/prebuilt/common/xbin/powertop:system/xbin/powertop \
     vendor/ev/prebuilt/common/etc/profile:system/etc/profile
 
-#PRODUCT_PACKAGE_OVERLAYS += vendor/ev/overlay/wallpapers
 # Backup Transport
 PRODUCT_PACKAGE_OVERLAYS += vendor/ev/overlay/common
 
@@ -90,7 +75,7 @@ PRODUCT_VERSION_MAINTENANCE = 0
 ifeq ($(NIGHTLY_BUILD),true)
     ROM_VERSION := Evervolv-$(PRODUCT_CODENAME)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-Nightly-$(shell date +%Y%m%d)
 else
-    ROM_VERSION := Evervolv-$(PRODUCT_CODENAME)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)
+    ROM_VERSION := Evervolv-$(PRODUCT_CODENAME)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(shell date +%Y%m%d_%H%M%S)
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
